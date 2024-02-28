@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/users")
 async def users():
-    return "Hola FastAPI!"
+    return "Hola Users!"
