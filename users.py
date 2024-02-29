@@ -6,14 +6,15 @@ app = FastAPI()
 # Entidad User
 
 class User(BaseModel ):
+    id : int
     name : str
     surname : str
     url : str
     age : int
 
-users_list = [User(name="Brais", surname="Moure", url="https://moure.dev", age=35),
-         User(name="Moure", surname="Dev", url="https://mouredev.com", age=35),
-         User(name="Juan", surname="Sanchez", url="https://juansanchez.dev", age=39),
+users_list = [User(id= 1, name="Brais", surname="Moure", url="https://moure.dev", age=35),
+         User(id= 2, name="Moure", surname="Dev", url="https://mouredev.com", age=35),
+         User(id= 3, name="Juan", surname="Sanchez", url="https://juansanchez.dev", age=39),
          ]
     
 
@@ -25,4 +26,8 @@ async def usersjson():
     
 @app.get("/users")
 async def users():
+    return users_list
+
+@app.get("/user/{id}")
+async def user(id: int):
     return users_list
