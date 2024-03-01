@@ -29,13 +29,12 @@ async def users():
     return users_list
 
 # Path
-
 @app.get("/user/{id}")
 async def user(id: int):
     return search_user(id)
     
 # Query
-@app.get("/userquery/")
+@app.get("/user/")
 async def user(id: int):
     return search_user(id)
     
